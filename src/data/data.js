@@ -39,22 +39,66 @@ const data = [
     {
         id: 3,
         question: '¿Cómo de dulce te gusta la miel?',
-        answers: ['no muy dulce', 'dulce', 'muy dulce']
+        answers: [
+            {
+                string: 'Ácidos y cítricos',
+                points: 0,
+                id: 1
+            },
+            {
+                string: 'Frutos y dulces',
+                points: 5,
+                id: 2
+            },
+        ]
     },
     {
         id: 4,
         question: '¿Cómo de dulce te gusta la miel?',
-        answers: ['no muy dulce', 'dulce', 'muy dulce']
+        answers: [
+            {
+                string: 'Ácidos y cítricos',
+                points: 0,
+                id: 1
+            },
+            {
+                string: 'Frutos y dulces',
+                points: 5,
+                id: 2
+            },
+        ]
     },
     {
         id: 5,
         question: '¿Cómo de dulce te gusta la miel?',
-        answers: ['no muy dulce', 'dulce', 'muy dulce']
+        answers: [
+            {
+                string: 'Ácidos y cítricos',
+                points: 0,
+                id: 1
+            },
+            {
+                string: 'Frutos y dulces',
+                points: 5,
+                id: 2
+            },
+        ]
     },
     {
         id: 6,
         question: '¿Cómo de dulce te gusta la miel?',
-        answers: ['no muy dulce', 'dulce', 'muy dulce']
+        answers: [
+            {
+                string: 'Ácidos y cítricos',
+                points: 0,
+                id: 1
+            },
+            {
+                string: 'Frutos y dulces',
+                points: 5,
+                id: 2
+            },
+        ]
     }
 ]
 
