@@ -1,0 +1,21 @@
+.card{
+  margin: 15vh auto;
+  width: 45%;
+  background: #f0f0f0;
+  border-radius: 15px;
+  padding: 80px;
+
+}
+
+.logo{
+  width: 300px;
+  margin: 0 auto;
+  display: block
+}
+
+.questions__card{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+
+}
