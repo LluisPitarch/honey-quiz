@@ -1,0 +1,6 @@
+.honey__selection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}

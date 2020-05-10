@@ -1,15 +1,19 @@
 import React from 'react';
+import Chart from './Chart';
+import HoneySelection from './HoneySelection';
+
 
 class Results extends React.Component {
-    state = {  }
+    state = { 
+    
+     }
     render() { 
         return ( 
-        <React.Fragment>
-        <h1>Results</h1> 
-        <div className="chart">
-            
-        </div>
-        </React.Fragment>
+            <React.Fragment>
+                <h1>Results</h1> 
+                <Chart answerPointsArray={this.props.points}/>
+                <HoneySelection />
+            </React.Fragment>
             );
     }
 }

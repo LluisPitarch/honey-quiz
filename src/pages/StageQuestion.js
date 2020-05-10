@@ -57,7 +57,7 @@ render() {
       );
     }
     else if(this.state.data.length === 0){
-      return (<Results></Results>)
+      return (<Results points={this.state.answersPoints}/>)
     }
     else{
       return(
