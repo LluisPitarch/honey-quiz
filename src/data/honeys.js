@@ -1,137 +1,30 @@
-const data = [
+const Honeys = [
     {
         id: 1,
-        question: '¿Cómo de dulce te gusta la miel?',
-        answers: [
-            {
-                string: 'No muy dulce',
-                points: 1,
-                id: 1
-            },
-            {
-                string: 'Dulce',
-                points: 3,
-                id: 2
-            },
-            {
-                string: 'Muy dulce',
-                points: 6,
-                id: 3
-            }
-            ]
+        name: 'Miel de Azahar',
+        color: '#000',
+        image: 'https://www.lasdehesasmiel.com/wp-content/uploads/2020/03/azahar.png',
+        price: '7,50€',
+        features: {
+            sweet: 7,
+            acid: 5,
+            smell: 8,
+            hardness: 7
+        }
     },
     {
         id: 2,
-        question: '¿Prefieres ácidos y cítricos o frutos y dulces?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 2,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 4,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 3,
-        question: '¿Cómo de dulce te gusta la miel?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 1,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 5,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 4,
-        question: '¿Pregunta 4?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 3,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 4,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 5,
-        question: '¿Pregunta 5?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 2,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 5,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 6,
-        question: '¿Pregunta 6?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 2,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 3,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 7,
-        question: '¿Pregunta 7?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 1,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 4,
-                id: 2
-            },
-        ]
-    },
-    {
-        id: 8,
-        question: '¿Pregunta 8?',
-        answers: [
-            {
-                string: 'Ácidos y cítricos',
-                points: 2,
-                id: 1
-            },
-            {
-                string: 'Frutos y dulces',
-                points: 3,
-                id: 2
-            },
-        ]
-    },
+        name: 'Miel de Bosque',
+        color: '#FDD45D',
+        image: 'https://www.lasdehesasmiel.com/wp-content/uploads/2020/03/bosque.png',
+        price: '8,10€',
+        features: {
+            sweet: 4,
+            acid: 3,
+            smell: 5,
+            hardness: 2,
+        }
+    }
 ]
 
-export default data
+export default Honeys

@@ -5,14 +5,14 @@ import HoneySelection from './HoneySelection';
 
 class Results extends React.Component {
     state = { 
-    
+        points: this.props.points
      }
     render() { 
         return ( 
             <React.Fragment>
                 <h1>Results</h1> 
                 <Chart answerPointsArray={this.props.points}/>
-                <HoneySelection />
+                <HoneySelection answerPointsArray={this.props.points}/>
             </React.Fragment>
             );
     }
