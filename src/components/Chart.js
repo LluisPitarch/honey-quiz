@@ -4,6 +4,7 @@ import {Radar} from 'react-chartjs-2'
 class Chart extends React.Component {
     state = { 
         answerPointsArray: this.props.answerPointsArray,
+        
         data: {
             labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
             datasets: [{
@@ -13,6 +14,7 @@ class Chart extends React.Component {
                 label: 'Tu perfil de HoneyLover'
             }],
         },
+        
         options: {
             scale: {
                 angleLines: {
@@ -26,28 +28,16 @@ class Chart extends React.Component {
         },
      }
     
-    async componentDidMount(){
-        const data = this.state.answerPointsArray
-        await this.setDataFromResults(data)
+    componentDidMount(){
+        this.setData()
     }
 
-    setDataFromResults = (data) => {
-        const sweet = data.slice(0, 2)
-        const sweetValue = sweet.reduce((a, b) => a + b, 0)
-
-        const acid = data.slice(2, 4)
-        const acidValue = acid.reduce((a, b) => a + b, 0)
-        
-        const smell = data.slice(4, 6)
-        const smellValue = smell.reduce((a, b) => a + b, 0)
-        
-        const hardness = data.slice(6, 8)
-        const hardnessValue = hardness.reduce((a, b) => a + b, 0)
-        
-        const dataArray = [sweetValue, acidValue, smellValue, hardnessValue] 
+    setData = () =>{
+        const dataArray = this.state.answerPointsArray;
         let dataState = {...this.state.data}
         dataState.datasets[0].data = dataArray;
-        this.setState({dataState})
+        this.setState({data: dataState})
+        debugger
     }
 
     render() { 

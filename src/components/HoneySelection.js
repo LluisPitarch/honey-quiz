@@ -6,33 +6,14 @@ import './styles/honeyselection.css'
 
 class HoneySelection extends React.Component {
     state = { 
-        answerPointsArray: this.props.answerPointsArray,
-        honeyUser: 0,
+        honeyUser: this.props.answerPointsArray,
         honeysList: [],
         similarHoneys: []
      }
     
     async componentDidMount(){
-        await this.setDataFromResults(this.state.answerPointsArray);
         await this.setHoneysArrays()
         await this.filterHoneys()
-    }
-
-    setDataFromResults = (data) => {
-        const sweet = data.slice(0, 2)
-        const sweetValue = sweet.reduce((a, b) => a + b, 0)
-
-        const acid = data.slice(2, 4)
-        const acidValue = acid.reduce((a, b) => a + b, 0)
-        
-        const smell = data.slice(4, 6)
-        const smellValue = smell.reduce((a, b) => a + b, 0)
-        
-        const hardness = data.slice(6, 8)
-        const hardnessValue = hardness.reduce((a, b) => a + b, 0)
-        
-        const dataArray = [sweetValue, acidValue, smellValue, hardnessValue] 
-        this.setState({honeyUser: dataArray})
     }
 
     setHoneysArrays = () => {
@@ -78,7 +59,7 @@ class HoneySelection extends React.Component {
     }
 
     render() {
-        const honeys = this.state.answerPointsArray;
+        const honeys = this.state.similarHoneys;
 
         return ( 
             <div className="honey__selection">
