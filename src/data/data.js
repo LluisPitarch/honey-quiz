@@ -1,16 +1,17 @@
 const data = [
+// Preguntas sobre Dulzor
     {
         id: 1,
         question: '¿Cómo de dulce te gusta la miel?',
         answers: [
             {
                 string: 'No muy dulce',
-                points: 1,
+                points: 2,
                 id: 1
             },
             {
                 string: 'Dulce',
-                points: 3,
+                points: 4,
                 id: 2
             },
             {
@@ -22,63 +23,70 @@ const data = [
     },
     {
         id: 2,
-        question: '¿Prefieres ácidos y cítricos o frutos y dulces?',
+        question: 'Usas la miel para...',
         answers: [
             {
-                string: 'Ácidos y cítricos',
+                string: 'Pongo la mitad de la mitad de una cucharadita de miel en mi mi café infusión',
                 points: 2,
+                id: 2
+            },
+            {
+                string: 'Endulzar todo tipo de productos',
+                points: 3,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
+                string: 'Yo... me la tomo a cucharadas',
                 points: 4,
-                id: 2
+                id: 3
             },
         ]
     },
+// Preguntas sobre Acidez
     {
         id: 3,
-        question: '¿Cómo de dulce te gusta la miel?',
+        question: '¿Plátano o Piña?',
         answers: [
             {
-                string: 'Ácidos y cítricos',
+                string: 'Plátano',
                 points: 1,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
-                points: 5,
+                string: 'Piña',
+                points: 3,
                 id: 2
             },
         ]
     },
     {
         id: 4,
-        question: '¿Pregunta 4?',
+        question: '¿Manzana o Frambuesas?',
         answers: [
             {
-                string: 'Ácidos y cítricos',
-                points: 3,
+                string: 'Manzana',
+                points: 1,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
+                string: 'Frambuesas',
                 points: 4,
                 id: 2
             },
         ]
     },
+// Preguntas sobre Aroma
     {
         id: 5,
-        question: '¿Pregunta 5?',
+        question: 'En tu casa siempre huele a...',
         answers: [
             {
-                string: 'Ácidos y cítricos',
+                string: 'Cereza...mmmm',
                 points: 2,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
+                string: 'Lavanda',
                 points: 5,
                 id: 2
             },
@@ -86,48 +94,49 @@ const data = [
     },
     {
         id: 6,
-        question: '¿Pregunta 6?',
+        question: 'Prefieres los aromas...',
         answers: [
             {
-                string: 'Ácidos y cítricos',
+                string: 'Frescos y cítricos',
                 points: 2,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
+                string: 'Embriagantes y dulces',
                 points: 3,
                 id: 2
             },
         ]
     },
+// Preguntas sobre Cristalización
     {
         id: 7,
-        question: '¿Pregunta 7?',
+        question: '¿Te importa que la miel se ponga dura?',
         answers: [
             {
-                string: 'Ácidos y cítricos',
+                string: 'Yo siempre... al microondas',
                 points: 1,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
-                points: 4,
+                string: 'No no pasa nada en mi té se disuelve perfectamente',
+                points: 5,
                 id: 2
             },
         ]
     },
     {
         id: 8,
-        question: '¿Pregunta 8?',
+        question: '¿Prefieres una miel 100% natural o una miel fácil de consumir?',
         answers: [
             {
-                string: 'Ácidos y cítricos',
-                points: 2,
+                string: 'Simpre 100% natural',
+                points: 4,
                 id: 1
             },
             {
-                string: 'Frutos y dulces',
-                points: 3,
+                string: 'Para mi es muy importante que la miel esté líquida',
+                points: 1,
                 id: 2
             },
         ]

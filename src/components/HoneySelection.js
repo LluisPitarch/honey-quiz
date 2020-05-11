@@ -7,12 +7,12 @@ import './styles/honeyselection.css'
 class HoneySelection extends React.Component {
     state = { 
         honeyUser: this.props.answerPointsArray,
-        honeysList: [],
+        honeysList: Honeys,
         similarHoneys: []
      }
     
     async componentDidMount(){
-        await this.setHoneysArrays()
+        // await this.setHoneysArrays()
         await this.filterHoneys()
     }
 
@@ -35,17 +35,20 @@ class HoneySelection extends React.Component {
 
     filterHoneys = async () => {
         let honeysList = this.state.honeysList
-
-        var comparison = []
+        let comparisonObjectsArray = []
 
         await honeysList.forEach( honey => {
-            let result = this.compareHoneys(this.state.honeyUser, honey)
-            comparison.push(result)
+            let result = this.compareHoneys(this.state.honeyUser, Object.values(honey.features))
+            let difference = {difference: result}     
+            let objectWithComparison = Object.assign(honey, difference)
+            comparisonObjectsArray.push(objectWithComparison)
         })
 
-        comparison.sort((a, b) => a - b)
-        
-        this.setState({similarHoneys: comparison})
+        let arraySort = comparisonObjectsArray.sort(function(a,b) {
+            return a.difference - b.difference;
+        })
+
+        this.setState({similarHoneys: arraySort})
     }
 
     compareHoneys = (honeyUser, honeyType) => {
@@ -64,9 +67,9 @@ class HoneySelection extends React.Component {
         return ( 
             <div className="honey__selection">
                 {
-                honeys.map(function (honey) {
+                this.state.similarHoneys.map(function (honey) {
                     return (
-                       <HoneyProduct honey={honey}/>
+                       <HoneyProduct key={honey.id} product={honey}/>
                        )
                 })
                 }

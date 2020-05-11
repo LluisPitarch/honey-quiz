@@ -3,4 +3,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 60px;
+    width: 75%;
+    margin: 60px auto;
 }

@@ -37,7 +37,6 @@ class Chart extends React.Component {
         let dataState = {...this.state.data}
         dataState.datasets[0].data = dataArray;
         this.setState({data: dataState})
-        debugger
     }
 
     render() { 

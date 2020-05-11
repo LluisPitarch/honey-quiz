@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p{
+  font-family: 'ABeeZee', sans-serif;
+}
+
+h1,h2,h3{
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1px;
+}
+
+a:hover{
+  text-decoration: none;
+}
