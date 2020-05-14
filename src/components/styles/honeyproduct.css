@@ -1,43 +1,86 @@
 .honey__container{
-	width: 33%
+	width: 100%;
+	min-height: 50%;
 }
 
-.link__comprar{
-    display: inline-block !important;
-    margin: 0px auto !important;
-    text-align: center !important;
-    width: 100% !important; 
-  	margin-top: 10px !important;
-}
-
-.btn__comprar{font-size: 18px !important; 
-color:white !important; 
-text-align: center !important; 
-letter-spacing: 1px !important; 
-margin-top: 10px !important;
-display: inline-block !important;
-margin:0px auto !important;
-background: url('https://www.lasdehesasmiel.com/wp-content/uploads/2020/03/Recurso-8@3x.png') no-repeat bottom left !important;
-padding-bottom: 5px !important;
-background-size: 100% !important;}
-
-.prod-div-container{
-	transform: translatey(-60px); padding: 0px 20px -20px 20px
-}
-
-.prod-img-container{
+.prod__container{
+	width: 100%;
 	display: flex;
-  	align-items: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	min-height: 100%;
+	padding: 30px 30px;
 }
 
-.prod-img-container img{
-	width: 194px; margin: 0px auto;
+.prod__img__container{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 40%;
+	height: 100%;
+	align-self: center;
 }
 
-.producto-title{
-	font-size: 28px !important; 
-  	color: white !important; 
-  	text-align: center; 
+.prod__img__container img{
+	width: 100%
+}
+
+.prod__info__container{
+	width: 60%;
+	align-self: center;
+}
+
+.btn__comprar{
+	font-size: 18px; 
+	color:black;
+	letter-spacing: 1px; 
+	margin: 15px 0px;
+	display: block;
+	padding: 5px 15px;
+	width: fit-content;
+	background: #fff;
+	border-radius: 3px;
+	font-weight: 600;
+}
+.btn__comprar span{
+	margin-right: 10px;
+}
+.honey__container a {
+	color: black;
+
+}
+
+.progress__bar__container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.progress__Bar{
+	width: 42%;
+	margin: 10px 0px
+}
+
+.progress__Bar span{
+	font-size: 18px;
+	font-weight: 400;
+	color: white;
+}
+
+.progress__Bar .progress-bar {
+	background-color:white;
+
+}
+
+.progress{
+	background-color: black;
+}
+
+.producto__title{
+	font-size: 35px;
+  	color: white;
+  	text-align: left; 
   	letter-spacing: 1px; 
   	margin-top: 10px;
 	font-family: 'oswald';
@@ -48,13 +91,6 @@ background-size: 100% !important;}
 	font-size: 15px; color:white; text-align: center; letter-spacing: 1px; margin-top: 10px
 }
 
-
-
-.producto-link p:hover{ 
-
-	letter-spacing: 2px;
-	transition: 0.3s ease-in-out;
-}
 
 
 
@@ -79,60 +115,3 @@ background-size: 100% !important;}
   }
 }
 
-
-/*###### Tienda Estilos #####*/
-
-/*#### PRODUCTO ESTILOS ####*/
-.product-template-default .et_pb_row_0_tb_body{
-	width: 100% !important;
-}
-.product-template-default .et_pb_row{
-	max-width: 100% !important;
-}
-
-.container-boton-prod{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-
-.boton-prod{
-	color: white;
-	font-family: oswald;
-	font-size: 22px;
-	font-weight: 500;
-	letter-spacing: 2px;
-	background: #a3a3a3;
-	display: block;
-	padding: 7px 30px !important;
-	text-align: center;
-	border-radius: 4px;
-}
-
-@media screen and (max-width: 1250px){
-	.boton-prod{padding: 7px 20px !important;}
-}
-
-@media screen and (max-width: 1050px){
-	div.swatchinput{
-		padding-right: 0px;
-	} 
-	.boton-prod{font-size: 16px;}
-}
-
-@media screen and (min-width: 1500px){
-	.boton-prod{padding: 7px 45px !important;}
-}
-
-@media screen and (max-width: 500px){
-	.boton-prod{padding: 7px 14px !important;
-	font-size: 18px;
-	}
-	#ficha-prod-white{
-		padding: 20px !important;
-	}
-	.et-db #et-boc .et-l .et_pb_section_1>.et_pb_row{
-		width: 85%;
-	}
-}

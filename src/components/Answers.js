@@ -1,10 +1,14 @@
 import React from 'react';
+import './styles/answers.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle} from '@fortawesome/free-regular-svg-icons'
+
 
 class Answers extends React.Component {
     state = {  }
     handleClick = (points) => {
         this.props.points(points);
-        console.log(points)
+        
     }
 
     render() { 
@@ -15,7 +19,7 @@ class Answers extends React.Component {
             <div className="answers__chances">
                 {
                     answers.map( function(answer) {
-                       return <button onClick={() => this.handleClick(answer.points)} className="btn btn-primary mx-3 my-3" points={answer.points} key={answer.id}>{answer.string}</button>
+                       return <button className="answer__button" onClick={() => this.handleClick(answer.points)} className="btn__answer" points={answer.points} key={answer.id}><FontAwesomeIcon icon={faCircle} className="btn__icon"/> {answer.string}</button>
                     }, this)
                 }
             </div>

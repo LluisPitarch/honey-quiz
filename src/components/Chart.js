@@ -8,10 +8,10 @@ class Chart extends React.Component {
         data: {
             labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
             datasets: [{
-                borderColor: 'rgba(252, 7, 7, 1)',
-                backgroundColor: 'rgba(255, 7, 7, 0.2', 
+                borderColor: 'rgba(221, 146, 38, 1)',
+                backgroundColor: 'rgba(221, 146, 38, 0.2)', 
                 data: [],
-                label: 'Tu perfil de HoneyLover'
+                label: 'Tu perfil de HoneyLover',
             }],
         },
         
@@ -23,6 +23,14 @@ class Chart extends React.Component {
                 ticks: {
                     suggestedMin: 0,
                     suggestedMax: 10
+                }
+            },
+            responsive: true,
+            legend: {
+                labels: {
+                    fontColor: 'black',
+                    defaultFontFamily: 'ABeeZee',
+                    defaultFontSize: 28,
                 }
             }
         },

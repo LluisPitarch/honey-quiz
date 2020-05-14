@@ -8,7 +8,8 @@ class HoneySelection extends React.Component {
     state = { 
         honeyUser: this.props.answerPointsArray,
         honeysList: Honeys,
-        similarHoneys: []
+        similarHoneys: [],
+        yourPerfectHoneys: [],
      }
     
     async componentDidMount(){
@@ -49,6 +50,7 @@ class HoneySelection extends React.Component {
         })
 
         this.setState({similarHoneys: arraySort})
+        this.setState({yourPerfectHoneys: [arraySort[0], arraySort[1]]})
     }
 
     compareHoneys = (honeyUser, honeyType) => {
@@ -67,7 +69,7 @@ class HoneySelection extends React.Component {
         return ( 
             <div className="honey__selection">
                 {
-                this.state.similarHoneys.map(function (honey) {
+                this.state.yourPerfectHoneys.map(function (honey) {
                     return (
                        <HoneyProduct key={honey.id} product={honey}/>
                        )
