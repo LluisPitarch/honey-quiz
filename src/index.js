@@ -4,11 +4,25 @@ import './index.css';
 import StageQuestion from './pages/StageQuestion';
 import 'bootstrap'
 
+// Redux
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers'
+
+const initialState = {
+  comparisonData: '', 
+}
+
+
+const ComposeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(reducer, initialState, ComposeEnhancers())
+
 ReactDOM.render(
-  <React.StrictMode>
-    <StageQuestion
-   />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <StageQuestion/>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

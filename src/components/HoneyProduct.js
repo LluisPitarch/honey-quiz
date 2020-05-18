@@ -5,8 +5,25 @@ import { faChartLine } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { ProgressBar } from 'react-bootstrap';
 
+// Redux
+import { connect } from 'react-redux';
+import { setComparison } from '../actions'
+
 
 class HoneyProduct extends React.Component {
+    
+    handleClick = () => {
+        this.props.setComparison('')
+        const honey = this.props.product
+        const array = []
+        
+        let honeyFeatures = honey.features
+        honeyFeatures = Object.values(honeyFeatures)
+        array.push(honeyFeatures[0], honeyFeatures[1], honeyFeatures[2], honeyFeatures[3] )
+
+        this.props.setComparison(array)
+    }
+
     render() { 
         const honey = this.props.product
         return ( 
@@ -40,11 +57,11 @@ class HoneyProduct extends React.Component {
                             </div>
                         </div>
 
-                        <a href={honey.url} className="btn__comprar">
+                        <button onClick={this.handleClick} className="btn__comprar">
                             <span>Comparar</span>
                             <FontAwesomeIcon icon={faChartLine} />  
-                        </a>
-                        <a className="btn__comprar" href="https://www.lasdehesasmiel.com/producto/miel-de-romero/">
+                        </button>
+                        <a href={honey.url} className="btn__comprar" href="https://www.lasdehesasmiel.com/producto/miel-de-romero/">
                             <span>
                                 Comprar
                             </span> 
@@ -57,5 +74,9 @@ class HoneyProduct extends React.Component {
          );
     }
 }
- 
-export default HoneyProduct;
+
+const mapDispatchToProps = {
+    setComparison
+}
+
+export default connect(null, mapDispatchToProps)(HoneyProduct)

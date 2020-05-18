@@ -42,6 +42,11 @@
 	border-radius: 3px;
 	font-weight: 600;
 }
+
+.btn__comprar:focus{
+	outline: none
+}
+
 .btn__comprar span{
 	margin-right: 10px;
 }

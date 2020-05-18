@@ -1,5 +1,6 @@
 import React from 'react';
 import {Radar} from 'react-chartjs-2'
+import { connect } from 'react-redux';
 
 class Chart extends React.Component {
     state = { 
@@ -12,7 +13,14 @@ class Chart extends React.Component {
                 backgroundColor: 'rgba(221, 146, 38, 0.2)', 
                 data: [],
                 label: 'Tu perfil de HoneyLover',
-            }],
+            },
+            {
+                borderColor: 'rgba(0, 0, 255, 1)',
+                backgroundColor: 'rgba(0, 0, 255, 0.2)', 
+                data: [],
+                label: 'Miel seleccionada',
+            },
+            ],
         },
         
         options: {
@@ -34,21 +42,21 @@ class Chart extends React.Component {
                 }
             }
         },
-     }
+    }
     
     componentDidMount(){
-        this.setData()
+        this.setData(0)
     }
 
-    setData = () =>{
+    setData = (i) =>{
         const dataArray = this.state.answerPointsArray;
         let dataState = {...this.state.data}
-        dataState.datasets[0].data = dataArray;
+        dataState.datasets[i].data = dataArray;
         this.setState({data: dataState})
     }
 
     render() { 
-        if(this.state.data.data = true){
+        if (this.state.data.data = true){
             return ( 
             
                 <div className="chart__container">
@@ -57,11 +65,16 @@ class Chart extends React.Component {
             
             );
         } else {
-            return (
-                <p>Building the data</p>
-            )
+            return ''
         }
+
     }
 }
  
-export default Chart;
+const mapStateToProps = (state) => {
+    return {
+        comparisonData: state.comparisonData
+    }
+}
+
+export default connect(mapStateToProps, null)(Chart)
