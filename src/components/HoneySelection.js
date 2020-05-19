@@ -5,6 +5,7 @@ import './styles/honeyselection.css'
 
 // Redux
 import { connect } from 'react-redux';
+import Loading from './Loading';
 
 
 class HoneySelection extends React.Component {
@@ -12,36 +13,22 @@ class HoneySelection extends React.Component {
         honeysList: Honeys,
         similarHoneys: [],
         yourPerfectHoneys: [],
+        propsUserArray: []
+
      }
     
-    async componentDidMount(){
-        // await this.setHoneysArrays()
+    async componentDidMount() {
+        await this.setState({propsUserArray: this.props.answerPoints})
         await this.filterHoneys()
-    }
-
-    setHoneysArrays = () => {
-        const rawData = Honeys
-        const array = []
-        function extract () {
-            rawData.forEach( honey => {
-                let honeyFeatures = honey.features
-                honeyFeatures = Object.values(honeyFeatures)
-                array.push(honeyFeatures)
-            })
-        }
-        extract();
-
-        this.setState({
-            honeysList: array
-        })
+        
     }
 
     filterHoneys = async () => {
         let honeysList = this.state.honeysList
         let comparisonObjectsArray = []
-
+        
         await honeysList.forEach( honey => {
-            let result = this.compareHoneys(this.props.answersPointsArray, Object.values(honey.features))
+            let result = this.compareHoneys(this.state.propsUserArray, Object.values(honey.features))
             let difference = {difference: result}     
             let objectWithComparison = Object.assign(honey, difference)
             comparisonObjectsArray.push(objectWithComparison)
@@ -56,6 +43,7 @@ class HoneySelection extends React.Component {
     }
 
     compareHoneys = (honeyUser, honeyType) => {
+        
         const sweet = Math.abs(honeyUser[0] - honeyType[0])
         const acid = Math.abs(honeyUser[1] - honeyType[1])
         const smell =  Math.abs(honeyUser[2] - honeyType[2])
@@ -66,19 +54,25 @@ class HoneySelection extends React.Component {
     }
 
     render() {
-        const honeys = this.state.similarHoneys;
-
-        return ( 
-            <div className="honey__selection">
-                {
-                this.state.yourPerfectHoneys.map(function (honey) {
-                    return (
-                       <HoneyProduct key={honey.id} product={honey}/>
-                       )
-                })
-                }
-            </div>
-         );
+        
+        if (this.state.propsUserArray.length === 4){
+            return ( 
+                <div className="honey__selection">
+                    {
+                    this.state.yourPerfectHoneys.map(function (honey) {
+                        return (
+                        <HoneyProduct key={honey.id} product={honey}/>
+                        )
+                    })
+                    }
+                </div>
+            );
+        }
+        else {
+            return(
+            <Loading/>
+            )
+        }
     }
 }
 

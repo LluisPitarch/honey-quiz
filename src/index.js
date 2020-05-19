@@ -16,6 +16,7 @@ import reducer from './reducers'
 
 const initialState = {
   comparisonData: [],
+  comparisonName: 'Honey',
   answersPoints: [],
   answersPointsArray: [],
 }

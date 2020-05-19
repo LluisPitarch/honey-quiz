@@ -81,7 +81,7 @@ class Results extends React.Component {
                         </div>
 
                          <div className="results__col_r">
-                            <HoneySelection/>
+                            <HoneySelection answerPoints={this.props.answersPointsArray}/>
                         </div>
                     </div>
                 </div>

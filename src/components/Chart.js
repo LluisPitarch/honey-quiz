@@ -4,19 +4,6 @@ import { connect } from 'react-redux';
 
 class Chart extends React.Component {
     state = { 
-        userData: [],
-        data: {
-            labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
-            datasets: [
-                {
-                    borderColor: 'rgba(221, 146, 38, 1)',
-                    backgroundColor: 'rgba(221, 146, 38, 0.2)', 
-                    data: [],
-                    label: 'Tu perfil de HoneyLover',
-                }
-            ],
-        },
-        
         options: {
             scale: {
                 angleLines: {
@@ -38,37 +25,47 @@ class Chart extends React.Component {
         },
     }
 
-    async componentDidMount() {
-        await this.setState({ userData: this.props.answersPointsArray })
-        this.setDataResults();
-    }
-
-    setDataResults = () =>{
-        
-        this.setState(prevState => ({
-            data: {
-                ...prevState.data,
-                datasets: [{
-                    ...prevState.data.datasets[0], data: this.props.answersPointsArray
-                }, {
-                    ...prevState.data.datasets[1], data: this.props.comparisonData || []
-                }]
-            }
-        }))
-        
-    }
-
-    async componentWillReceiveProps() {
-        await this.setDataResults()
-        
-    }
-
     render() { 
-        if (this.state.userData.length == 4){
+        if (this.props.answersPointsArray.length == 4){
             return ( 
             
                 <div className="chart__container">
-                    <Radar data={this.state.data} options={this.state.options}/>
+                    {this.props.comparisonData.length === 4 ?
+                        <Radar data={
+                            {
+                                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
+                                datasets: [
+                                    {
+                                        borderColor: 'rgba(221, 146, 38, 1)',
+                                        backgroundColor: 'rgba(221, 146, 38, 0.2)', 
+                                        data: this.props.answersPointsArray,
+                                        label: 'Tu perfil de HoneyLover',
+                                    },
+                                    {
+                                        borderColor: 'rgba(255, 0, 0, 1)',
+                                        backgroundColor: 'rgba(255, 0, 0, 0.2)', 
+                                        data: this.props.comparisonData,
+                                        label: this.props.comparisonName,
+                                    },
+                                ]}
+                            }
+                        options={this.state.options}/>                        
+                        :
+                        <Radar data={
+                            {
+                                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
+                                datasets: [
+                                    {
+                                        borderColor: 'rgba(221, 146, 38, 1)',
+                                        backgroundColor: 'rgba(221, 146, 38, 0.2)', 
+                                        data: this.props.answersPointsArray,
+                                        label: 'Tu perfil de HoneyLover',
+                                    },
+                                ]}
+                            }
+                        options={this.state.options}/>
+                        
+                    }
                 </div>
             
             );
@@ -82,7 +79,8 @@ class Chart extends React.Component {
 const mapStateToProps = (state) => {
     return {
         comparisonData: state.comparisonData,
-        answersPointsArray: state.answersPointsArray
+        answersPointsArray: state.answersPointsArray,
+        comparisonName: state.comparisonName
     }
 }
 

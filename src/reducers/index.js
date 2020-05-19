@@ -1,9 +1,13 @@
+import { bindActionCreators } from "redux";
+
 const reducer = (state, action) => {
     switch (action.type){
         case 'SET_COMPARISON':
             return { 
             ...state, 
-            comparisonData: action.payload };
+            comparisonData: action.payload, 
+            comparisonName: action.name
+            };
 
         case 'SET_POINTS':
             return {
@@ -14,7 +18,7 @@ const reducer = (state, action) => {
         case 'SET_USER_RESPONSE':
             return {
                 ...state,
-                answersPointsArray: action.payload
+                answersPointsArray: action.payload,
             }
         default: 
             return state

@@ -13,15 +13,20 @@ import { setComparison } from '../actions'
 class HoneyProduct extends React.Component {
     
     handleClick = () => {
+        // We make sure that the data was clear
         this.props.setComparison('')
+
         const honey = this.props.product
         const array = []
+        const honeyName = this.props.product.name
         
         let honeyFeatures = honey.features
         honeyFeatures = Object.values(honeyFeatures)
         array.push(honeyFeatures[0], honeyFeatures[1], honeyFeatures[2], honeyFeatures[3] )
 
-        this.props.setComparison(array)
+        this.props.setComparison(array, honeyName)
+        
+
     }
 
     render() { 
