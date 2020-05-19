@@ -1,18 +1,26 @@
+// React Import
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import StageQuestion from './pages/StageQuestion';
 import 'bootstrap'
 
-// Redux
+// Redux Import
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers'
 
+
+// ------ Initial State
+
 const initialState = {
-  comparisonData: '', 
+  comparisonData: [],
+  answersPoints: [],
+  answersPointsArray: [],
 }
 
+// ------ Redux STORE
 
 const ComposeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const store = createStore(reducer, initialState, ComposeEnhancers())

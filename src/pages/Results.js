@@ -5,15 +5,22 @@ import Loading from '../components/Loading';
 import './styles/results.css'
 import { ProgressBar } from 'react-bootstrap';
 
+// Redux
+import { connect } from 'react-redux';
+import { setUserResponse } from '../actions'
+
+
+
 
 class Results extends React.Component {
     state = { 
-        points: this.props.points,
-        answerPointsArray: []
+        points: this.props.answersPoints,
+        answersPointsArray: []
     }
 
     async componentDidMount() {
         await this.setDataFromResults(this.state.points);
+        
     }
 
     setDataFromResults = (data) => {
@@ -30,11 +37,17 @@ class Results extends React.Component {
         const hardnessValue = hardness.reduce((a, b) => a + b, 0)
         
         const dataArray = [sweetValue, acidValue, smellValue, hardnessValue] 
-        this.setState({answerPointsArray: dataArray})
+
+        // Set dat to redux state 
+        this.props.setUserResponse(dataArray)
+        // Set dat to component state
+        this.setState({answersPointsArray: dataArray})
     }
 
     render() { 
-        if (this.state.answerPointsArray.length === 4){
+        
+
+        if (this.props.answersPointsArray.length = 4){
             return ( 
                 <div className="main__div_bg">
                     <div className="results__container">
@@ -43,24 +56,24 @@ class Results extends React.Component {
 
                             <span className="question__count">Resultados</span>
                             <h1>Este es tu perfil de honeyLover</h1> 
-                            <Chart answerPointsArray={this.state.answerPointsArray}/>
+                            <Chart/>
 
                             <div className="results__bar-container">
                                 <div className="progress__bar-user">
-                                    <span>{`Dulzor ${this.state.answerPointsArray[0]}/10`}</span>
-                                    <ProgressBar now={this.state.answerPointsArray[0]*10} />
+                                    <span>{`Dulzor ${this.props.answersPointsArray[0]}/10`}</span>
+                                    <ProgressBar now={this.props.answersPointsArray[0]*10} />
                                 </div>
                                 <div className="progress__bar-user">
-                                    <span>{`Acidez ${this.state.answerPointsArray[1]}/10`}</span>
-                                    <ProgressBar now={this.state.answerPointsArray[1]*10} />
+                                    <span>{`Acidez ${this.props.answersPointsArray[1]}/10`}</span>
+                                    <ProgressBar now={this.props.answersPointsArray[1]*10} />
                                 </div>
                                 <div className="progress__bar-user">
-                                    <span>{`Aroma ${this.state.answerPointsArray[2]}/10`}</span>
-                                    <ProgressBar now={this.state.answerPointsArray[2]*10} />
+                                    <span>{`Aroma ${this.props.answersPointsArray[2]}/10`}</span>
+                                    <ProgressBar now={this.props.answersPointsArray[2]*10} />
                                 </div>
                                 <div className="progress__bar-user">
-                                    <span>{`Cristalización ${this.state.answerPointsArray[3]}/10`}</span>
-                                    <ProgressBar now={this.state.answerPointsArray[3]*10} />
+                                    <span>{`Cristalización ${this.props.answersPointsArray[3]}/10`}</span>
+                                    <ProgressBar now={this.props.answersPointsArray[3]*10} />
                                 </div>
                                 <button className="results__btn">Repetir test</button>
                             </div>
@@ -68,7 +81,7 @@ class Results extends React.Component {
                         </div>
 
                          <div className="results__col_r">
-                            <HoneySelection answerPointsArray={this.state.answerPointsArray}/>
+                            <HoneySelection/>
                         </div>
                     </div>
                 </div>
@@ -78,5 +91,16 @@ class Results extends React.Component {
         }
     }
 }
- 
-export default Results;
+
+const mapStateToProps = (state) => {
+    return {
+        answersPoints: state.answersPoints,
+        answersPointsArray: state.answersPointsArray
+    }
+}
+
+const mapDispatchToProps = {
+    setUserResponse,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results)

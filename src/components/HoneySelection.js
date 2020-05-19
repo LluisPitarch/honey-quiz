@@ -3,10 +3,12 @@ import HoneyProduct from './HoneyProduct'
 import Honeys from '../data/honeys'
 import './styles/honeyselection.css'
 
+// Redux
+import { connect } from 'react-redux';
+
 
 class HoneySelection extends React.Component {
     state = { 
-        honeyUser: this.props.answerPointsArray,
         honeysList: Honeys,
         similarHoneys: [],
         yourPerfectHoneys: [],
@@ -39,7 +41,7 @@ class HoneySelection extends React.Component {
         let comparisonObjectsArray = []
 
         await honeysList.forEach( honey => {
-            let result = this.compareHoneys(this.state.honeyUser, Object.values(honey.features))
+            let result = this.compareHoneys(this.props.answersPointsArray, Object.values(honey.features))
             let difference = {difference: result}     
             let objectWithComparison = Object.assign(honey, difference)
             comparisonObjectsArray.push(objectWithComparison)
@@ -79,5 +81,12 @@ class HoneySelection extends React.Component {
          );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        answersPointsArray: state.answersPointsArray
+    }
+}
  
-export default HoneySelection;
+
+export default connect(mapStateToProps, null)(HoneySelection)

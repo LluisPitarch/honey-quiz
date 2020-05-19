@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/StageQuestions.css';
 
 import Question from '../components/Question'
-import ImageChange from '../components/ImageChange'
 import Answers from '../components/Answers'
 import Results from './Results'
 
@@ -12,12 +11,17 @@ import 'react-bootstrap'
 import Loading from '../components/Loading';
 import flores from '../img/flores.png';
 
+// Redux
+import { connect } from 'react-redux';
+import { setPoints } from '../actions'
+
+
+
 class App extends React.Component {
   state = { 
     questionCount: 1,
     data: [],
     currentQuestion: Data[0],
-    answersPoints: [],
     backgroundImage: require('../img/img-quiz-1.jpg'),
   }
 
@@ -34,11 +38,9 @@ class App extends React.Component {
     this.updateBackground(nextIndex)
   }
 
-  setPoints = (points) => {
+  setPointsToState = (points) => {
     let newAnswerPoints = points
-    this.setState({
-      answersPoints:[...this.state.answersPoints, newAnswerPoints]
-    });
+    this.props.setPoints(newAnswerPoints)
     this.nextQuestion()
   }
 
@@ -63,7 +65,7 @@ class App extends React.Component {
     this.setState({
         backgroundImage: imgBg
     })
-}
+  }
   
 render() { 
     if(this.state.data.length >= 1) {
@@ -77,7 +79,7 @@ render() {
                   <div className="answers__container">
                   <Answers  
                     answers={this.state.currentQuestion.answers}
-                    points={this.setPoints}
+                    points={this.setPointsToState}
                   />
                   </div>
                   <button className="btn__back">Volver atrás</button>
@@ -91,8 +93,8 @@ render() {
         </div>
       );
     }
-    else if(this.state.data.length === 0){
-      return (<Results points={this.state.answersPoints}/>)
+    else if(this.state.data.length === 0 && this.state.questionCount == 9){
+      return (<Results/>)
     }
     else{
       return(
@@ -101,5 +103,9 @@ render() {
     }
   }
 }
- 
-export default App;
+
+const mapDispatchToProps = {
+  setPoints
+}
+
+export default connect(null, mapDispatchToProps)(App)

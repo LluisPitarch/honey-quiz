@@ -4,22 +4,16 @@ import { connect } from 'react-redux';
 
 class Chart extends React.Component {
     state = { 
-        answerPointsArray: this.props.answerPointsArray,
-        
+        userData: [],
         data: {
             labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
-            datasets: [{
-                borderColor: 'rgba(221, 146, 38, 1)',
-                backgroundColor: 'rgba(221, 146, 38, 0.2)', 
-                data: [],
-                label: 'Tu perfil de HoneyLover',
-            },
-            {
-                borderColor: 'rgba(0, 0, 255, 1)',
-                backgroundColor: 'rgba(0, 0, 255, 0.2)', 
-                data: [],
-                label: 'Miel seleccionada',
-            },
+            datasets: [
+                {
+                    borderColor: 'rgba(221, 146, 38, 1)',
+                    backgroundColor: 'rgba(221, 146, 38, 0.2)', 
+                    data: [],
+                    label: 'Tu perfil de HoneyLover',
+                }
             ],
         },
         
@@ -43,20 +37,34 @@ class Chart extends React.Component {
             }
         },
     }
-    
-    componentDidMount(){
-        this.setData(0)
+
+    async componentDidMount() {
+        await this.setState({ userData: this.props.answersPointsArray })
+        this.setDataResults();
     }
 
-    setData = (i) =>{
-        const dataArray = this.state.answerPointsArray;
-        let dataState = {...this.state.data}
-        dataState.datasets[i].data = dataArray;
-        this.setState({data: dataState})
+    setDataResults = () =>{
+        
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                datasets: [{
+                    ...prevState.data.datasets[0], data: this.props.answersPointsArray
+                }, {
+                    ...prevState.data.datasets[1], data: this.props.comparisonData || []
+                }]
+            }
+        }))
+        
+    }
+
+    async componentWillReceiveProps() {
+        await this.setDataResults()
+        
     }
 
     render() { 
-        if (this.state.data.data = true){
+        if (this.state.userData.length == 4){
             return ( 
             
                 <div className="chart__container">
@@ -73,7 +81,8 @@ class Chart extends React.Component {
  
 const mapStateToProps = (state) => {
     return {
-        comparisonData: state.comparisonData
+        comparisonData: state.comparisonData,
+        answersPointsArray: state.answersPointsArray
     }
 }
 
