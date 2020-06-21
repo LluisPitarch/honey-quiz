@@ -1,111 +1,110 @@
 import React from 'react';
 import './styles/StageQuestions.css';
 
-import Question from '../components/Question'
-import Answers from '../components/Answers'
-import Results from './Results'
+import Question from '../components/Question';
+import Answers from '../components/Answers';
+import Results from './Results';
 
-import Data from '../data/data.js'
+import Data from '../data/data.js';
 
-import 'react-bootstrap'
+import 'react-bootstrap';
 import Loading from '../components/Loading';
 import flores from '../img/flores.png';
 
 // Redux
 import { connect } from 'react-redux';
-import { setPoints } from '../actions'
-
-
+import { setPoints } from '../actions';
 
 class App extends React.Component {
-  state = { 
+  state = {
     questionCount: 1,
     data: [],
     currentQuestion: Data[0],
     backgroundImage: require('../img/img-quiz-1.jpg'),
-  }
+  };
 
-  async componentDidMount(){
-    await this.setState({data: Data})
-    await this.setState(this.currentQuestion = this.state.data[0])
+  async componentDidMount() {
+    await this.setState({ data: Data });
+    await this.setState((this.currentQuestion = this.state.data[0]));
   }
 
   nextQuestion = () => {
-    const nextIndex = this.state.questionCount + 1
-    this.state.data.shift()
-    this.setState({questionCount: nextIndex})
-    this.setState({ currentQuestion: this.state.data[0]})
-    this.updateBackground(nextIndex)
-  }
+    const nextIndex = this.state.questionCount + 1;
+    this.state.data.shift();
+    this.setState({ questionCount: nextIndex });
+    this.setState({ currentQuestion: this.state.data[0] });
+    this.updateBackground(nextIndex);
+  };
 
   setPointsToState = (points) => {
-    let newAnswerPoints = points
-    this.props.setPoints(newAnswerPoints)
-    this.nextQuestion()
-  }
+    let newAnswerPoints = points;
+    this.props.setPoints(newAnswerPoints);
+    this.nextQuestion();
+  };
 
   updateBackground = (nextIndex) => {
-    const img1 = require('../img/img-quiz-1.jpg')
-    const img2 = require('../img/img-quiz-2.jpg')
+    const img1 = require('../img/img-quiz-1.jpg');
+    const img2 = require('../img/img-quiz-2.jpg');
 
-    let imgBg = ''
+    let imgBg = '';
 
     switch (nextIndex || 1) {
-        case 1:
-            imgBg = img1 
-            break;
-        case 2:
-            imgBg = img2
-            break
-        default:
-            imgBg = img1
-            break;
+      case 1:
+        imgBg = img1;
+        break;
+      case 2:
+        imgBg = img2;
+        break;
+      default:
+        imgBg = img1;
+        break;
     }
-    
+
     this.setState({
-        backgroundImage: imgBg
-    })
-  }
-  
-render() { 
-    if(this.state.data.length >= 1) {
+      backgroundImage: imgBg,
+    });
+  };
+
+  render() {
+    if (this.state.data.length >= 1) {
       return (
         <div className="container">
           <div className="row">
             <div className="col-6 card__col">
               <div className="questions__card">
-                  <span className="question__count">{`Pregunta ${this.state.questionCount}/8`}</span>
-                  <Question question={this.state.currentQuestion.question}/>
-                  <div className="answers__container">
-                  <Answers  
+                <span className="question__count">{`Pregunta ${this.state.questionCount}/8`}</span>
+                <Question question={this.state.currentQuestion.question} />
+                <div className="answers__container">
+                  <Answers
                     answers={this.state.currentQuestion.answers}
                     points={this.setPointsToState}
                   />
-                  </div>
-                  <button className="btn__back">Volver atrás</button>
-                  <img className="flores__image" src={flores} alt=""/>
+                </div>
+                <button className="btn__back">Volver atrás</button>
+                <img className="flores__image" src={flores} alt="" />
               </div>
             </div>
             <div className="col-6">
-              <div style={{backgroundImage: `url(${this.state.backgroundImage})` }} id="imageContainer" className="quiz__image"></div>
+              <div
+                style={{
+                  backgroundImage: `url(${this.state.backgroundImage})`,
+                }}
+                id="imageContainer"
+                className="quiz__image"></div>
             </div>
           </div>
         </div>
       );
-    }
-    else if(this.state.data.length === 0 && this.state.questionCount == 9){
-      return (<Results/>)
-    }
-    else{
-      return(
-        <Loading/>
-      )
+    } else if (this.state.data.length === 0 && this.state.questionCount === 9) {
+      return <Results />;
+    } else {
+      return <Loading />;
     }
   }
 }
 
 const mapDispatchToProps = {
-  setPoints
-}
+  setPoints,
+};
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App);
