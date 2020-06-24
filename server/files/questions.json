@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "¿Cómo de dulce te gusta la miel?",
+    "answers": ""
+  },
+  {
+    "id": 2,
+    "question": "Usas la miel para...",
+    "answers": ""
+  },
+  {
+    "id": 3,
+    "question": "¿Plátano o Piña?",
+    "answers": ""
+  },
+  {
+    "id": 4,
+    "question": "¿Manzana o Frambuesas?",
+    "answers": ""
+  },
+  {
+    "id": 5,
+    "question": "En tu casa siempre huele a...",
+    "answers": ""
+  },
+  {
+    "id": 6,
+    "question": "Prefieres los aromas...",
+    "answers": ""
+  },
+  {
+    "id": 7,
+    "question": "¿Te importa que la miel se ponga dura?",
+    "answers": ""
+  },
+  {
+    "id": 8,
+    "question": "¿Prefieres una miel 100% natural o una miel fácil de consumir?",
+    "answers": ""
+  }
+]

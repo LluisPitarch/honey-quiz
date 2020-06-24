@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "quiz-las-dehesas",
+  "private_key_id": "66e24ae3f5233d7b4534c917a4688e9a421b17b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYPeLMQXWO5yzI\nXJUU2zV70JE5WeBYUyiIbgLqBRrWtcOUGipuSDFslQ+6ki7mEH57/MBxO7rqmKDu\nJqZrfr8mtfEd582UxcagAQjlW+sZoJtWYcShgxiGAciwg7W+iMzTx5Atvl/4jJfV\nuoBYkNF4FGFQRdK2bY4bVaFQQlkEtr8Z3S6XoE1aNE4Der4dowecI3Ma6hCYsZUP\nlZlr21ebAMSfjjC80vkCpx17n4/wSgoatF2bXKjLNyAXiuk9H5DQv9aPKWTvY8d4\nYJkTVK9Ks27SSWrH0Yt+TNXXY3rw108/KdepbhjpMinp20y9NujyoA0OkVUmWjuj\nL/TTI/jLAgMBAAECggEASm4DGhosp7NUvRYqWpp7MO+8eD39BSGO0Ph72z6oqu0N\nU7RhJy6LX0sW9/9tB1RsCiD9Ur7BeN0q3JOvzCEYwgu0eIryAriYjXREDaIdNBfF\nqfs9fzsQ+78Wh1m1OpQ2E5ne3sZStDjEKJ04D1Sp3BuWogCo7kBsd+eq6Iqva7JM\n1/fG4s3IVndb0/lH/k3kErMiJRmepoH7iSBz1kwLmDIpnA2c8kBH8uat3NkNv4JY\nUv+2027UNsHSY6I7addwkDzXLqOctWATANMbfOD6DOwaiIguA7sMqLflzKZzeybl\n7KVW1xO/Bs+HAp9f7oSJhO2AnYpB46m5CaoYC6TJbQKBgQDWQYnqcQDvR+wYeCci\nDX/VUxEe0ji9Hpi8gA3E3GiDgppi819hHr7NbEkCS1c+QMKVPbtkDn8LtsiLYItK\nntFz73AJ3LJwkHQGEe7rluR9me6YggHhUNxJqh1pXSeZtVnR+pBARCKASBQ/gyct\nYghQZzWLKIxdtyY3BH64UCAGFQKBgQC150Hks/lqlu6/fre6KAETm4eS931FHC/V\nHsHlqSQWyfok4kCtKH9u0ydVWtJCfg0OhqQ6OzEaTfygwowDd1XrcPd30RReWlHz\nwNUwccewHH7NWhLGfwPsaCVBp8EZIPoKAWgqgpn8+ExPcracZAsFRneWJgcEOhHN\nwhtApQebXwKBgAiZHLXBzy3LDxh0Se296PFgogFAonJEdhCqeuL5jWApr5Rk++Dj\n4PhRbiSfbWLcKnLexVRgmIyZyzZ8q1pVQUaLx00+BBMsWNudgJ8HsSexM7f/D6BB\nJHX4U7HUwTAT7QTWL0/E7DWFrvpVgw75Lig73BQ3jlp8bRYsIgG3hXF5AoGAN79h\nBWtW1CDfmJaITif2dIDk4tiwbp691g3wFKdqpQVPgUBJ3AeeTmOuGU2VRMWG0N3Y\ntPPxD4O5Gbel22YWUeq0HOdZ27TIivCdJZSpQ0LoZZzmRiklFa2xRVbZKg9eMfTO\nbMDL2qhqEqswZeuPKRW4jq6m1dfKHwoO+hfZpfcCgYEAngBq1EBKcxKHFBy5N13E\nUVBVtoTDR6XwOxC7sv78CV/G/Pzjtt9xgoLUDOHQ+eVkzMoQm8xDcosiEe2tms9g\nrthmvCC+RxQ+p6Qi6r86QId28PF6962pkTLBzx2rAs0OsCC6R7m1rkidIOzvCsI1\n5jL6ow5tSJAXUuaMNCauzhM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-o7uh4@quiz-las-dehesas.iam.gserviceaccount.com",
+  "client_id": "102004898735200653445",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-o7uh4%40quiz-las-dehesas.iam.gserviceaccount.com"
+}
