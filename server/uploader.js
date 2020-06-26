@@ -20,9 +20,9 @@ fs.readdir(directoryPath, function (err, files) {
   files.forEach(function (file) {
     var lastDotIndex = file.lastIndexOf('.');
 
-    var menu = require('./files/' + file);
+    var dataArray = require('./files/' + file);
 
-    menu.forEach(function (obj) {
+    dataArray.forEach(function (obj) {
       firestore
         .collection(file.substring(0, lastDotIndex))
         .doc(obj.question)

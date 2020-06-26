@@ -2,15 +2,15 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Test from './pages/test';
 import './index.css';
 import StageQuestion from './pages/StageQuestion';
-import 'bootstrap'
+import 'bootstrap';
 
 // Redux Import
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import reducer from './reducers'
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducers';
 
 // ------ Initial State
 
@@ -19,23 +19,19 @@ const initialState = {
   comparisonName: 'Honey',
   answersPoints: [],
   answersPointsArray: [],
-}
+};
 
 // ------ Redux STORE
 
 const ComposeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const store = createStore(reducer, initialState, ComposeEnhancers())
+const store = createStore(reducer, initialState, ComposeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <StageQuestion/>
+      <StageQuestion />
+      {/* <Test /> */}
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-

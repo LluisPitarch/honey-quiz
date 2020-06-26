@@ -5,7 +5,11 @@ import Question from '../components/Question';
 import Answers from '../components/Answers';
 import Results from './Results';
 
-import Data from '../data/data.js';
+// Utils
+import updateBackground from '../utils/updateBackground';
+
+// Fetch firebase function import from utils
+import firebaseFetch from '../utils/firebaseFetch';
 
 import 'react-bootstrap';
 import Loading from '../components/Loading';
@@ -19,13 +23,15 @@ class App extends React.Component {
   state = {
     questionCount: 1,
     data: [],
-    currentQuestion: Data[0],
+    currentQuestion: '',
     backgroundImage: require('../img/img-quiz-1.jpg'),
   };
 
   async componentDidMount() {
-    await this.setState({ data: Data });
-    await this.setState((this.currentQuestion = this.state.data[0]));
+    const fetchedData = await firebaseFetch('questions');
+    fetchedData.sort((a, b) => a.id - b.id);
+    await this.setState({ data: fetchedData });
+    await this.setState({ currentQuestion: fetchedData[0] });
   }
 
   nextQuestion = () => {
@@ -33,7 +39,7 @@ class App extends React.Component {
     this.state.data.shift();
     this.setState({ questionCount: nextIndex });
     this.setState({ currentQuestion: this.state.data[0] });
-    this.updateBackground(nextIndex);
+    this.updateBackgroundCall(nextIndex);
   };
 
   setPointsToState = (points) => {
@@ -42,31 +48,14 @@ class App extends React.Component {
     this.nextQuestion();
   };
 
-  updateBackground = (nextIndex) => {
-    const img1 = require('../img/img-quiz-1.jpg');
-    const img2 = require('../img/img-quiz-2.jpg');
-
-    let imgBg = '';
-
-    switch (nextIndex || 1) {
-      case 1:
-        imgBg = img1;
-        break;
-      case 2:
-        imgBg = img2;
-        break;
-      default:
-        imgBg = img1;
-        break;
-    }
-
+  updateBackgroundCall = (nextIndex) => {
     this.setState({
-      backgroundImage: imgBg,
+      backgroundImage: updateBackground(nextIndex),
     });
   };
 
   render() {
-    if (this.state.data.length >= 1) {
+    if (this.state.data.length >= 1 && this.state.currentQuestion) {
       return (
         <div className="container">
           <div className="row">

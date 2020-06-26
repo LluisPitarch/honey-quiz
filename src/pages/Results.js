@@ -34,9 +34,9 @@ class Results extends React.Component {
 
     const dataArray = [sweetValue, acidValue, smellValue, hardnessValue];
 
-    // Set dat to redux state
+    // Set data to redux state
     this.props.setUserResponse(dataArray);
-    // Set dat to component state
+    // Set data to component state
     this.setState({ answersPointsArray: dataArray });
   };
 
