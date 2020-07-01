@@ -2,10 +2,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './pages/test';
+
 import './index.css';
-import StageQuestion from './pages/StageQuestion';
 import 'bootstrap';
+import App from './routes/App';
 
 // Redux Import
 import { Provider } from 'react-redux';
@@ -29,8 +29,7 @@ const store = createStore(reducer, initialState, ComposeEnhancers());
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <StageQuestion />
-      {/* <Test /> */}
+      <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

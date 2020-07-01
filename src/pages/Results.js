@@ -4,6 +4,12 @@ import HoneySelection from '../components/HoneySelection';
 import Loading from '../components/Loading';
 import './styles/results.css';
 import { ProgressBar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMedal } from '@fortawesome/free-solid-svg-icons';
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
 
 // Redux
 import { connect } from 'react-redux';
@@ -67,7 +73,16 @@ class Results extends React.Component {
                   <span>{`Cristalización ${this.props.answersPointsArray[3]}/10`}</span>
                   <ProgressBar now={this.props.answersPointsArray[3] * 10} />
                 </div>
-                <button className="results__btn">Repetir test</button>
+
+                <Link to="/top" className="btn__results">
+                  <FontAwesomeIcon icon={faMedal} />
+                  <span>Ver el top</span>
+                </Link>
+
+                <a href="/" className="btn__results">
+                  <FontAwesomeIcon icon={faRedo} />
+                  <span>Repetir test</span>
+                </a>
               </div>
             </div>
 

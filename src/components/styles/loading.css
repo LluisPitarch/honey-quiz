@@ -1,7 +1,8 @@
-.center{
+.loading__center {
     margin-top: 40vh;
 }
 
-.center img{
+.loading__center img {
+    display: block;
     margin: 0 auto;
-} 
+}

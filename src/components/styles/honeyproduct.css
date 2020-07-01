@@ -1,122 +1,131 @@
-.honey__container{
-	width: 100%;
-	min-height: 50%;
+.honey__container {
+    width: 100%;
+    min-height: 50%;
 }
 
-.prod__container{
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	min-height: 100%;
-	padding: 30px 30px;
+.prod__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100%;
+    padding: 30px 30px;
 }
 
-.prod__img__container{
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	width: 40%;
-	height: 100%;
-	align-self: center;
+.prod__img__container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 40%;
+    height: 100%;
+    align-self: center;
 }
 
-.prod__img__container img{
-	width: 100%
+.prod__img__container img {
+    width: 100%
 }
 
-.prod__info__container{
-	width: 60%;
-	align-self: center;
+.prod__info__container {
+    width: 60%;
+    align-self: center;
 }
 
-.btn__comprar{
-	font-size: 18px; 
-	color:black;
-	letter-spacing: 1px; 
-	margin: 15px 0px;
-	display: block;
-	padding: 5px 15px;
-	width: fit-content;
-	background: #fff;
-	border-radius: 3px;
-	font-weight: 600;
+.btn__comprar {
+    font-size: 18px;
+    color: black;
+    border: 0px;
+    letter-spacing: 1px;
+    margin: 15px 0px;
+    display: block;
+    padding: 5px 15px;
+    width: fit-content;
+    background: #fff;
+    border-radius: 3px;
+    font-weight: 600;
 }
 
-.btn__comprar:focus{
-	outline: none
+.btn__comprar:focus {
+    outline: none
 }
 
-.btn__comprar span{
-	margin-right: 10px;
+.btn__comprar span {
+    margin-right: 10px;
 }
+
 .honey__container a {
-	color: black;
+    color: black;
 
 }
 
-.progress__bar__container{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+.progress__bar__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.progress__Bar{
-	width: 42%;
-	margin: 10px 0px
+.progress__Bar {
+    width: 42%;
+    margin: 10px 0px
 }
 
-.progress__Bar span{
-	font-size: 18px;
-	font-weight: 400;
-	color: white;
+.progress__Bar span {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
 }
 
 .progress__Bar .progress-bar {
-	background-color:white;
+    background-color: white;
 
 }
 
-.progress{
-	background-color: black;
+.progress {
+    background-color: black;
 }
 
-.producto__title{
-	font-size: 35px;
-  	color: white;
-  	text-align: left; 
-  	letter-spacing: 1px; 
-  	margin-top: 10px;
-	font-family: 'oswald';
-  
+.producto__title {
+    font-size: 35px;
+    color: white;
+    text-align: left;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    font-family: 'oswald';
+
 }
 
-.producto-price{
-	font-size: 15px; color:white; text-align: center; letter-spacing: 1px; margin-top: 10px
+.producto-price {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 10px
 }
-
-
-
-
-
 
 .shake-animation:hover {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 @keyframes shake {
-  10%,50%, 90% {
-    transform: translate3d(-8px, 0, 0);
-    transform: rotate(-3deg)
-  }
-  
-  30%, 70% {
-    transform: translate3d(10px, 0, 0);
-    transform: rotate(4deg)
-  }
+
+    10%,
+    50%,
+    90% {
+        transform: translate3d(-8px, 0, 0);
+        transform: rotate(-3deg)
+    }
+
+    30%,
+    70% {
+        transform: translate3d(10px, 0, 0);
+        transform: rotate(4deg)
+    }
 }
 
+.top__border__radius__container {
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}

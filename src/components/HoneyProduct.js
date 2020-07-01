@@ -34,7 +34,13 @@ class HoneyProduct extends React.Component {
     const honey = this.props.product;
     return (
       <div className="honey__container">
-        <div style={{ background: honey.color }} className="prod__container">
+        <div
+          style={{ background: honey.color, borderRadius: honey.borderRadius }}
+          className={
+            this.props.topCard
+              ? 'top__border__radius__container prod__container'
+              : 'prod__container'
+          }>
           <div className="prod__img__container">
             <img
               className="shake-animation"
@@ -66,10 +72,14 @@ class HoneyProduct extends React.Component {
               </div>
             </div>
 
-            <button onClick={this.handleClick} className="btn__comprar">
-              <span>Comparar</span>
-              <FontAwesomeIcon icon={faChartLine} />
-            </button>
+            {this.props.topCard ? (
+              <div></div>
+            ) : (
+              <button onClick={this.handleClick} className="btn__comprar">
+                <span>Comparar</span>
+                <FontAwesomeIcon icon={faChartLine} />
+              </button>
+            )}
             <a href={honey.url} className="btn__comprar">
               <span>Comprar</span>
               <FontAwesomeIcon icon={faShoppingCart} />

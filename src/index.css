@@ -12,15 +12,29 @@ code {
     monospace;
 }
 
-p{
+p {
   font-family: 'ABeeZee', sans-serif;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3 {
   font-family: 'Oswald', sans-serif;
   letter-spacing: 0.1px;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
+}
+
+button:focus {
+  outline: none
+}
+
+a {
+  color: #232323
+}
+
+a:hover {
+  color: #232323
 }
