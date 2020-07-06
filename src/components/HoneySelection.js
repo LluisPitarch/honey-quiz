@@ -75,10 +75,26 @@ class HoneySelection extends React.Component {
 
   //----------------- Render
   render() {
+    if (this.state.propsUserArray.length === 4 && this.props.res) {
+      return (
+        <div className="honey__selection">
+          {this.state.yourPerfectHoneys.map(function (honey, responsive) {
+            return (
+              <HoneyProduct
+                resultsPadding={true}
+                res={true}
+                key={honey.id}
+                product={honey}
+              />
+            );
+          })}
+        </div>
+      );
+    }
     if (this.state.propsUserArray.length === 4) {
       return (
         <div className="honey__selection">
-          {this.state.yourPerfectHoneys.map(function (honey) {
+          {this.state.yourPerfectHoneys.map(function (honey, responsive) {
             return <HoneyProduct key={honey.id} product={honey} />;
           })}
         </div>

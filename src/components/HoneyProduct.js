@@ -38,19 +38,33 @@ class HoneyProduct extends React.Component {
           style={{ background: honey.color, borderRadius: honey.borderRadius }}
           className={
             this.props.topCard
-              ? 'top__border__radius__container prod__container'
+              ? this.props.res
+                ? 'top__res__container'
+                : 'top__border__radius__container'
+              : this.props.resultsPadding
+              ? 'top__res__paddings prod__container'
               : 'prod__container'
           }>
-          <div className="prod__img__container">
+          <div
+            className={
+              this.props.res
+                ? 'prod__img__container res__img__container'
+                : 'prod__img__container'
+            }>
             <img
               className="shake-animation"
               src={honey.image}
-              alt="romero - tienda"
-              title="tienda"
+              alt={honey.name}
+              title={honey.name}
             />
           </div>
 
-          <div className="prod__info__container">
+          <div
+            className={
+              this.props.res
+                ? 'prod__info__container res__info__container'
+                : 'prod__info__container'
+            }>
             <h2 className="producto__title">{honey.name}</h2>
 
             <div className="progress__bar__container">
@@ -67,7 +81,7 @@ class HoneyProduct extends React.Component {
                 <ProgressBar now={honey.features.smell * 10} />
               </div>
               <div className="progress__Bar">
-                <span>{`Cristalización ${honey.features.hardness}/10`}</span>
+                <span>{`Cristaliz. ${honey.features.hardness}/10`}</span>
                 <ProgressBar now={honey.features.hardness * 10} />
               </div>
             </div>

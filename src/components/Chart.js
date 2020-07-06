@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class Chart extends React.Component {
   state = {
     options: {
+      maintainAspectRatio: true,
       scale: {
         angleLines: {
           display: true,
@@ -32,7 +33,7 @@ class Chart extends React.Component {
           {this.props.comparisonData.length === 4 ? (
             <Radar
               data={{
-                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
+                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristaliz.'],
                 datasets: [
                   {
                     borderColor: 'rgba(221, 146, 38, 1)',
@@ -53,7 +54,7 @@ class Chart extends React.Component {
           ) : (
             <Radar
               data={{
-                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristalización'],
+                labels: ['Dulzor', 'Acidez', 'Aroma', 'Cristaliz.'],
                 datasets: [
                   {
                     borderColor: 'rgba(221, 146, 38, 1)',

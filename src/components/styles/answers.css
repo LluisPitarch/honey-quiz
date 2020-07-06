@@ -1,4 +1,4 @@
-.btn__answer{
+.btn__answer {
     display: block;
     padding: 15px 30px;
     width: 100%;
@@ -13,25 +13,27 @@
     transition: background-color 0.2s ease-in;
 }
 
-.btn__icon{
+.btn__icon {
     margin-right: 10px;
 
 }
 
-.btn__answer:hover{
+.btn__answer:hover {
     background-color: #f5a12d;
 }
 
-.btn__answer:focus{
+.btn__answer:focus {
     outline: none;
 }
 
 
-.btn__icon:hover{
+.btn__icon:hover {
     background: white;
     border-radius: 100%;
 }
 
+/* Responsive */
 
-
-  
+.res__answers__string {
+    font-size: 18px;
+}

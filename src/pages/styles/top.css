@@ -1,105 +1,205 @@
 .top__main__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 0px auto;
-    background: url('../../img/img-quiz-2.jpg');
-    height: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0px auto;
+  background: url('../../img/bg-texture.png') repeat;
+}
+
+.top__card__main__container {
+  background: url('../../img/top-bg.png') no-repeat;
+  background-size: cover;
+  width: 100%;
 }
 
 .top__card__container {
-    width: 85%;
-    background: white;
-    height: fit-content;
-    padding: 40px;
-    border-radius: 10px;
-    margin: 20vh auto;
-    align-items: center;
+  width: 85%;
+  background: white;
+  height: fit-content;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 12vh auto -10vh;
+  align-items: center;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .row__top__card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.top__card__container h1 {
-    text-align: center;
+.top__title__container h2 {
+  text-align: center;
 }
-
 
 .top__bar {
-    width: 100%;
+  width: 100%;
 }
 
 .top__bar span {
-    color: #141414
+  color: #141414;
 }
-
 
 .top__progress__bar__container {
-    width: 40%
+  width: 38%;
+  padding-left: 2%;
 }
 
-
-
 .top__title__container {
-    width: 100%
+  width: 100%;
 }
 
 .top__progress__bar__container .top__bar .progress-bar {
-    background-color: #F7AB27;
+  background-color: #f7ab27;
 }
 
 .top__bar .progress {
-    background-color: #ececec;
-    height: 1.5rem;
-    margin: 15px 0px
+  background-color: #ececec;
+  height: 1.5rem;
+  margin: 15px 0px;
 }
 
 .btn__top {
-    font-size: 18px;
-    border: 0px;
-    letter-spacing: 1px;
-    margin-top: 45px;
-    display: block;
-    width: fit-content;
-    border-radius: 3px;
-    font-weight: 600;
-    border: none;
-    background-color: #F7AB27;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 5px;
+  font-size: 18px;
+  border: 0px;
+  letter-spacing: 1px;
+  margin: 45px 0 0;
+  display: block;
+  width: fit-content;
+  border-radius: 3px;
+  font-weight: 600;
+  border: none;
+  background-color: #f7ab27;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
 }
 
 .top__chart__container {
-    width: 60%
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.top__card__flowers {
+  max-width: 350px;
+  margin: 0px auto -80px;
+  display: block;
 }
 
 /* --------- POLL ------------*/
 
+.top__title__container__poll {
+  margin-top: 5vh;
+}
+
+.top__title__container__poll h2 {
+  text-align: center;
+}
+
 .top__poll__container {
-    width: 85%;
-    height: fit-content;
-    border-radius: 10px;
-    margin: 0 auto;
+  width: 75%;
+  height: fit-content;
+  border-radius: 10px;
+  margin: 15vh auto 0;
 }
 
 .top__poll__card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 10vh 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10vh 0;
 }
 
 .poll__product__container {
-    width: 77%
+  width: 77%;
 }
 
 .poll__poll__container {
-    width: 21%
+  width: 21%;
+}
+
+@media screen and (min-width: 1200px) {
+  .top__progress__bar__container {
+    width: 35%;
+    padding-left: 5%;
+  }
+
+  .top__chart__container canvas {
+    height: 400px !important;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+
+  /* media queries card */
+  .top__progress__bar__container {
+    width: 100%;
+    padding: 5%;
+  }
+
+  .top__chart__container {
+    width: 100%;
+  }
+
+  .row__top__card {
+    flex-direction: column-reverse;
+  }
+
+  .btn__top {
+    margin: 45px auto 0;
+  }
+
+  .top__card__flowers {
+    max-width: 270px;
+  }
+
+  /* media queries poll */
+  .top__poll__container {
+    width: 90%;
+  }
+
+  .poll__product__container {
+    width: 100%
+  }
+
+  .poll__poll__container {
+    width: 100%
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  /* media queries card */
+
+  .top__chart__container canvas {
+    margin-bottom: 0px;
+  }
+
+  .btn__top {
+    margin: 45px auto 20px;
+  }
+
+  .top__card__flowers {
+    max-width: 200px;
+    margin: 0px auto -70px;
+  }
+
+  .top__card__container {
+    width: 100%;
+    border-radius: 0;
+    padding: 30px;
+    box-shadow: none;
+    margin-top: 0;
+  }
+
+  /* media queries poll */
+  .top__poll__card {
+    margin-top: 120px;
+  }
 }

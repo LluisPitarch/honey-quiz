@@ -1,6 +1,7 @@
-.honey__selection{
+.honey__selection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    height: 50%;
 }

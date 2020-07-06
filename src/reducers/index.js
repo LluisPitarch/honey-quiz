@@ -1,4 +1,4 @@
-const reducer = (state, action) => {
+const reducerApp = (state, action) => {
   switch (action.type) {
     case 'SET_COMPARISON':
       return {
@@ -23,4 +23,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default reducer;
+export default reducerApp;

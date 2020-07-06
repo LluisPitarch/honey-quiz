@@ -1,70 +1,96 @@
-.container{
+.container {
   max-width: 100%;
   padding: 0;
 }
 
-.col-6{
+.col-6 {
   margin: 0;
   padding: 0;
 }
 
-.card__col{
+.card__col {
   display: flex;
   background: #dd9226;
   height: 100vh
 }
 
-.questions__card{
+.questions__card {
   display: block;
   margin: 0 auto;
   width: 70%;
   background: #f2f2f2;
-  height: 600px;
+  height: fit-content;
   align-self: center;
   border-radius: 1%;
   padding: 30px 60px;
-  -webkit-box-shadow: 10px 10px 39px -9px rgba(0,0,0,0.17);
-  -moz-box-shadow: 10px 10px 39px -9px rgba(0,0,0,0.17);
-  box-shadow: 10px 10px 39px -9px rgba(0,0,0,0.17);
+  -webkit-box-shadow: 10px 10px 39px -9px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 10px 10px 39px -9px rgba(0, 0, 0, 0.17);
+  box-shadow: 10px 10px 39px -9px rgba(0, 0, 0, 0.17);
   position: relative;
 }
 
-.question__count{
+.question__count {
   display: block;
   margin-bottom: 20px;
 }
 
-.btn__back{
+.btn__back {
   display: block;
   padding: 10px 20px;
   width: fit-content;
   background: #b3b3b3;
-  margin-top: 40px;
+  margin: 35px 0;
   border-radius: 4px;
   border: none;
   outline: none;
   text-align: left;
   color: #fff;
   font-size: 18px;
-  position: absolute;
   bottom: 60px
 }
 
-.flores__image{
+.flores__image {
   position: absolute;
   bottom: -40px;
   margin: 0px auto;
   left: 0;
   right: 0;
   max-width: 300px
-
 }
 
-
-
-.quiz__image{
+.quiz__image {
   height: 100vh;
-  width: 100%;  
-  background-size: cover ;
+  width: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 991.98px) {
+  .questions__card {
+    width: 80%;
+    padding: 30px 40px;
+  }
+}
+
+@media only screen and (max-width: 599.98px) {
+  .flores__image {
+    max-width: 240px;
+  }
+
+  .questions__card {
+    padding: 20px 20px;
+    width: 90%;
+  }
+
+  .card__col {
+    height: 110vh
+  }
+
+  .questions__card {
+    align-self: flex-start;
+    margin-top: 8vh;
+  }
+
 }

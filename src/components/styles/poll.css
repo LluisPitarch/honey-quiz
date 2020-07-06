@@ -1,37 +1,46 @@
 .poll__container {
-    height: 100%;
-    width: fit-content;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+  height: 100%;
+  width: fit-content;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
 }
 
 .poll__container h3 {
-    text-align: center;
-    margin: 10px 0px;
+  text-align: center;
+  margin: 10px 0px;
+  font-size: 1.3em;
 }
 
 .poll_subContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 
 .font__awesome__icon__top {
-    font-size: 75px;
-    margin: 0px auto;
+  font-size: 75px;
+  margin: 0px auto;
 }
 
-/* .svg-inline--fa.fa-w-16 {
-    width: 100%
-} */
+.res__poll__h3 {
+  font-size: 1.25em !important;
+}
 
-/* .svg-inline--fa.fa-w-18 {
-    width: 100%
-} */
+
+/* Responsive */
+
+.res__poll__subContainer {
+  width: 50%;
+}
+
+.res__poll__container {
+  border-radius: 0 0px 10px 10px;
+  padding: 22px;
+}

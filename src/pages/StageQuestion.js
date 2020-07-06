@@ -1,23 +1,32 @@
 import React from 'react';
-import './styles/StageQuestions.css';
 
+// Styles
+import './styles/StageQuestions.css';
+import Media from 'react-media';
+
+// Components
 import Question from '../components/Question';
 import Answers from '../components/Answers';
 import Results from './Results';
+import Loading from '../components/Loading';
 
 // Utils
 import updateBackground from '../utils/updateBackground';
+import 'react-bootstrap';
+
+// Img
+import flores from '../img/flores.png';
 
 // Fetch firebase function import from utils
 import firebaseFetch from '../utils/firebaseFetch';
 
-import 'react-bootstrap';
-import Loading from '../components/Loading';
-import flores from '../img/flores.png';
-
 // Redux
 import { connect } from 'react-redux';
 import { setPoints } from '../actions';
+
+// ***********************
+// -------COMPONENT-------
+// ***********************
 
 class App extends React.Component {
   state = {
@@ -57,32 +66,45 @@ class App extends React.Component {
   render() {
     if (this.state.data.length >= 1 && this.state.currentQuestion) {
       return (
-        <div className="container">
-          <div className="row">
-            <div className="col-6 card__col">
-              <div className="questions__card">
-                <span className="question__count">{`Pregunta ${this.state.questionCount}/8`}</span>
-                <Question question={this.state.currentQuestion.question} />
-                <div className="answers__container">
-                  <Answers
-                    answers={this.state.currentQuestion.answers}
-                    points={this.setPointsToState}
-                  />
+        <Media
+          queries={{
+            small: '(max-width: 599px)',
+            medium: '(min-width: 600px) and (max-width: 992px)',
+            large: '(min-width: 1200px)',
+          }}>
+          {(matches) => (
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12 col-lg-6 card__col">
+                  <div className="questions__card">
+                    <span className="question__count">{`Pregunta ${this.state.questionCount}/8`}</span>
+                    <Question
+                      res={matches.small ? true : false}
+                      question={this.state.currentQuestion.question}
+                    />
+                    <div className="answers__container">
+                      <Answers
+                        res={matches.small ? true : false}
+                        answers={this.state.currentQuestion.answers}
+                        points={this.setPointsToState}
+                      />
+                    </div>
+                    <button className="btn__back">Volver atrás</button>
+                    <img className="flores__image" src={flores} alt="" />
+                  </div>
                 </div>
-                <button className="btn__back">Volver atrás</button>
-                <img className="flores__image" src={flores} alt="" />
+                <div className="d-none d-lg-block col-6">
+                  <div
+                    style={{
+                      backgroundImage: `url(${this.state.backgroundImage})`,
+                    }}
+                    id="imageContainer"
+                    className="quiz__image"></div>
+                </div>
               </div>
             </div>
-            <div className="col-6">
-              <div
-                style={{
-                  backgroundImage: `url(${this.state.backgroundImage})`,
-                }}
-                id="imageContainer"
-                className="quiz__image"></div>
-            </div>
-          </div>
-        </div>
+          )}
+        </Media>
       );
     } else if (this.state.data.length === 0 && this.state.questionCount === 9) {
       return <Results />;

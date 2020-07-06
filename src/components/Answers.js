@@ -22,7 +22,9 @@ class Answers extends React.Component {
               points={answer.points}
               key={answer.id}>
               <FontAwesomeIcon icon={faCircle} className="btn__icon" />{' '}
-              {answer.string}
+              <span className={this.props.res ? 'res__answers__string' : ''}>
+                {answer.string}
+              </span>
             </button>
           );
         }, this)}

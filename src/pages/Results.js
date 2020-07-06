@@ -1,10 +1,17 @@
 import React from 'react';
+
+// Components
 import Chart from '../components/Chart';
 import HoneySelection from '../components/HoneySelection';
 import Loading from '../components/Loading';
-import './styles/results.css';
+
+// Bootstrap Elements
 import { ProgressBar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// Styles
+import './styles/results.css';
+import Media from 'react-media';
 
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,48 +56,69 @@ class Results extends React.Component {
   render() {
     if (this.props.answersPointsArray.length === 4) {
       return (
-        <div className="main__div_bg">
-          <div className="results__container">
-            <div className="results__col_l">
-              <span className="question__count">Resultados</span>
-              <h1>Este es tu perfil de honeyLover</h1>
-              <Chart />
+        <Media
+          queries={{
+            small: '(max-width: 599px)',
+            medium: '(min-width: 600px) and (max-width: 992px)',
+            large: '(min-width: 1200px)',
+          }}>
+          {(matches) => (
+            <div className="main__div_bg">
+              <div className="results__container">
+                <div className="results__col_l">
+                  <span className="question__count">Resultados</span>
+                  <h1>Este es tu perfil de honeyLover</h1>
 
-              <div className="results__bar-container">
-                <div className="progress__bar-user">
-                  <span>{`Dulzor ${this.props.answersPointsArray[0]}/10`}</span>
-                  <ProgressBar now={this.props.answersPointsArray[0] * 10} />
-                </div>
-                <div className="progress__bar-user">
-                  <span>{`Acidez ${this.props.answersPointsArray[1]}/10`}</span>
-                  <ProgressBar now={this.props.answersPointsArray[1] * 10} />
-                </div>
-                <div className="progress__bar-user">
-                  <span>{`Aroma ${this.props.answersPointsArray[2]}/10`}</span>
-                  <ProgressBar now={this.props.answersPointsArray[2] * 10} />
-                </div>
-                <div className="progress__bar-user">
-                  <span>{`Cristalización ${this.props.answersPointsArray[3]}/10`}</span>
-                  <ProgressBar now={this.props.answersPointsArray[3] * 10} />
+                  <Chart />
+
+                  <div className="results__bar-container">
+                    <div className="progress__bar-user">
+                      <span>{`Dulzor ${this.props.answersPointsArray[0]}/10`}</span>
+                      <ProgressBar
+                        now={this.props.answersPointsArray[0] * 10}
+                      />
+                    </div>
+                    <div className="progress__bar-user">
+                      <span>{`Acidez ${this.props.answersPointsArray[1]}/10`}</span>
+                      <ProgressBar
+                        now={this.props.answersPointsArray[1] * 10}
+                      />
+                    </div>
+                    <div className="progress__bar-user">
+                      <span>{`Aroma ${this.props.answersPointsArray[2]}/10`}</span>
+                      <ProgressBar
+                        now={this.props.answersPointsArray[2] * 10}
+                      />
+                    </div>
+                    <div className="progress__bar-user">
+                      <span>{`Cristalización ${this.props.answersPointsArray[3]}/10`}</span>
+                      <ProgressBar
+                        now={this.props.answersPointsArray[3] * 10}
+                      />
+                    </div>
+
+                    <Link to="/top" className="btn__results">
+                      <FontAwesomeIcon icon={faMedal} />
+                      <span>Ver el top</span>
+                    </Link>
+
+                    <a href="/" className="btn__results">
+                      <FontAwesomeIcon icon={faRedo} />
+                      <span>Repetir test</span>
+                    </a>
+                  </div>
                 </div>
 
-                <Link to="/top" className="btn__results">
-                  <FontAwesomeIcon icon={faMedal} />
-                  <span>Ver el top</span>
-                </Link>
-
-                <a href="/" className="btn__results">
-                  <FontAwesomeIcon icon={faRedo} />
-                  <span>Repetir test</span>
-                </a>
+                <div className="results__col_r">
+                  <HoneySelection
+                    res={matches.small ? true : false}
+                    answerPoints={this.props.answersPointsArray}
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="results__col_r">
-              <HoneySelection answerPoints={this.props.answersPointsArray} />
-            </div>
-          </div>
-        </div>
+          )}
+        </Media>
       );
     } else {
       return <Loading></Loading>;
