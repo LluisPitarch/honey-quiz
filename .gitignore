@@ -433,3 +433,4 @@ server/firebase.json
 build
 .vercel
 node_modules
+node_modules
