@@ -1,8 +1,9 @@
 import firebase from 'firebase';
+require('dotenv').config();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyADzAMcSDLnRlHqSMch4IvUvSNiAJptrKc',
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: 'quiz-las-dehesas.firebaseapp.com',
   databaseURL: 'https://quiz-las-dehesas.firebaseio.com',
   projectId: 'quiz-las-dehesas',

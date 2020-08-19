@@ -428,5 +428,8 @@ MigrationBackup/
 # Keys of firebase
 server/firebase.json
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudio,macos,windows,linux
-
+# Env
+.env
+build
+.vercel
+node_modules
