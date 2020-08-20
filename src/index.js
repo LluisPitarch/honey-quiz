@@ -23,8 +23,8 @@ const initialState = {
 
 // ------ Redux STORE
 
-const ComposeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const store = createStore(reducer, initialState, ComposeEnhancers());
+// const ComposeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(reducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>
