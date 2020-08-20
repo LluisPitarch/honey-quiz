@@ -430,7 +430,9 @@ server/firebase.json
 
 # Env
 .env
+env
 build
 .vercel
 node_modules
 node_modules
+./.env
