@@ -3,8 +3,8 @@ require('dotenv').config();
 const firebase = {
   type: 'service_account',
   project_id: 'quiz-las-dehesas',
-  private_key_id: process.env.PRIVATE_KEY_ID,
-  private_key: process.env.PRIVATE_KEY,
+  private_key_id: process.env.REACT_APP_PRIVATE_KEY_ID,
+  private_key: process.env.REACT_APP_PRIVATE_KEY,
   client_email:
     'firebase-adminsdk-o7uh4@quiz-las-dehesas.iam.gserviceaccount.com',
   client_id: '102004898735200653445',
