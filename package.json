@@ -1,7 +1,6 @@
 {
   "name": "honey-quiz-las-dehesas",
   "version": "0.1.0",
-  "homepage": ".",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -28,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
